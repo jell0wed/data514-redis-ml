@@ -2,4 +2,4 @@ pandas
 redis
 torch
 matplotlib
-timeit
+gensim
