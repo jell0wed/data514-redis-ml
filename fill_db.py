@@ -81,11 +81,24 @@ def insert_training_dataset(r):
 def insert_testing_dataset(r):
     # load testing dataset
     test_df = pd.read_csv("data/test.csv")
+    test_df_labels = pd.read_csv("data/test_labels.csv")
+
+    # merge both datasets
+    test_df = pd.merge(test_df, test_df_labels, on='id', how='inner')
+    test_df = test_df[['id', 'comment_text', 'toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']]
+
+    test_df['toxic'] = test_df['toxic'].apply(lambda x: 0 if x < 0 else x)
+    test_df['severe_toxic'] = test_df['severe_toxic'].apply(lambda x: 0 if x < 0 else x)
+    test_df['obscene'] = test_df['obscene'].apply(lambda x: 0 if x < 0 else x)
+    test_df['threat'] = test_df['threat'].apply(lambda x: 0 if x < 0 else x)
+    test_df['insult'] = test_df['insult'].apply(lambda x: 0 if x < 0 else x)
+    test_df['identity_hate'] = test_df['identity_hate'].apply(lambda x: 0 if x < 0 else x)
+
     # insert the testing dataset entries
     start_timer = timeit.default_timer()
     counter = 0
     for index, row in test_df.iterrows():
-        test_obj = row[['id', 'comment_text']].to_dict()
+        test_obj = row[['id', 'comment_text', 'toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].to_dict()
         key = "test:%d" % (index)
         r.json().set(key, Path.root_path(), test_obj)
         counter += 1

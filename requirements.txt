@@ -3,3 +3,4 @@ redis
 torch
 matplotlib
 gensim
+torchtext
