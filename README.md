@@ -29,10 +29,11 @@ and update the default python alternative:
 ## Project setup
 - Clone the repository
 ### Setting up the database
-- Using docker, start the redis server stack with the following command: 
-`docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest`
 - Install python dependencies using pip `pip install -r requirements.txt`
-- Download training data using the `sh ./get-data.sh` script; this will download the data files for the ML modles into the `data/` folder.
+- Download training data using the `sh ./get_data.sh` script; this will download the data files for the ML modles into the `data/` folder.
+- Start docker service `sudo service docker start`
+- Start the docker database using the `sh ./start_redis.sh`
+- Fill the database with training and testing data using `python fill_db.py`
 
 ### Setting up the Jupyter environment
 - Run `jupyter-lab` from the project repository, navigate to the `nn.ipynb` file.
