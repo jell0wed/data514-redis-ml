@@ -5,3 +5,4 @@ matplotlib
 gensim
 torchtext
 scikit-learn
+tqdm
