@@ -39,4 +39,6 @@ and update the default python alternative:
 - Run `jupyter-lab` from the project repository, navigate to the `notebook-dataprep.ipynb` file.
 - Read through the Notebook and execute every cell, two new files should be created after in the `data/test_cleaned.csv` and `data/train_cleaned.csv`.
 - Fill the database with training and testing data using `python fill_db.py`.
-- Start executing cells within the Jupyter notebook.
+- Start executing cells within the Jupyter notebook. 
+  - `notebook-nn.ipynb`: NLP Neural network implementation w/ Redis-connected datasets
+  - `notebook-dataprep.ipynb`: EDA & Data Cleaning

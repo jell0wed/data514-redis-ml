@@ -43,7 +43,7 @@ def initialize_schema(r):
     # delete any existing entries
     c = 0
     for k in r.scan_iter("train:*"):
-        r.delete(key)
+        r.delete(k)
         c += 1
     print("Deleted %d `train:*` entries" % c)
         
@@ -60,7 +60,7 @@ def initialize_schema(r):
     # delete any existing entries
     c = 0
     for k in r.scan_iter("test:*"):
-        r.delete(key)
+        r.delete(k)
         c += 1
     print("Deleted %d `train:*` entries" % c)
 
