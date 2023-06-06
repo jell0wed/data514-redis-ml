@@ -10,7 +10,6 @@ Software used throughout this project:
 - Docker
 - Jupyter Notebook
 - Python
-- Pandas
 
 ## System setup
 
