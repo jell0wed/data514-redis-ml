@@ -73,12 +73,12 @@ def insert_training_dataset(r):
     print("Currently inserting training examples: ")
     for index, row in tqdm(train_df.iterrows(), total=len(train_df.index)):
         train_obj = row[['id', 'comment_text', 'normal', 'toxic', 'obscene', 'threat', 'insult', 'identity_hate']].to_dict()
-        key = "train:%d" % (index)
+        key = "train:%d" % (counter)
         try:
             r.json().set(key, Path.root_path(), train_obj)
+            counter += 1
         except:
-            pass
-        counter += 1
+            print("exception", row)
     print("Inserted %d examples in for index `train:*` in " % (counter), timeit.default_timer() - start_timer)
 
 def insert_testing_dataset(r):
@@ -89,14 +89,14 @@ def insert_testing_dataset(r):
     counter = 0
     print("Currently inserting testing examples: ")
     for index, row in tqdm(test_df.iterrows(), total=len(test_df.index)):
-        train_obj = row[['id', 'comment_text', 'normal', 'toxic', 'obscene', 'threat', 'insult', 'identity_hate']].to_dict()
-        key = "test:%d" % (index)
+        test_obj = row[['id', 'comment_text', 'normal', 'toxic', 'obscene', 'threat', 'insult', 'identity_hate']].to_dict()
+        key = "test:%d" % (counter)
         try:
-            r.json().set(key, Path.root_path(), train_obj)
+            r.json().set(key, Path.root_path(), test_obj)
+            counter += 1
         except:
-            pass
-        counter += 1
-    print("Inserted %d examples in for index `train:*` in " % (counter), timeit.default_timer() - start_timer)
+            print("exception", row)
+    print("Inserted %d examples in for index `test:*` in " % (counter), timeit.default_timer() - start_timer)
 
 if __name__ == "__main__":
     r = initialize_redis()
