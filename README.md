@@ -1,5 +1,10 @@
 # Redis as high-performance ML cache for text prediction
 The intent of this project is to demonstrate how Redis can be used as a high-performance database engine for machine learning text generation tasks.
+This project was created as part of the Spring 2023 DATA 514 class at the University of Washington.
+
+Presentation links:
+- Part 3 - https://youtu.be/a38mKZQSUHA 
+- Part 4 - https://youtu.be/TMjEfDtSonE
 
 ## Project overview
 The primary objective of this research project is to demonstrate the practical application of Redis within a real-world machine learning pipeline focused on natural language processing. Specifically, we aim to utilize Redis as a high-performance, in-memory database to support the classification of toxic comments found on the internet. The overarching idea is to leverage Redis as the backbone database to store the training, testing, and validation datasets required for training a deep learning model for text classification. The model will be designed to categorize text into five distinct categories, namely toxic, obscene, threat, and identity hate. By harnessing Redis's capabilities, we seek to showcase its potential as a reliable and efficient in-memory database solution within the context of machine learning-driven natural language processing tasks in a distributed computing environment where the model can be re-trained on new sets of data on the fly minimizing further tweaks and manual configurations by end users and engineers.
