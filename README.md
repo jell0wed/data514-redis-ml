@@ -1,5 +1,5 @@
 # Redis as high-performance ML cache for toxic comment classification
-The intent of this project is to demonstrate how Redis can be used as a high-performance database engine for machine learning text generation tasks.
+The intent of this project is to demonstrate how Redis can be used as a high-performance database engine for machine learning text classification tasks.
 This project was created as part of the Spring 2023 DATA 514 class at the University of Washington.
 
 Presentation links:
